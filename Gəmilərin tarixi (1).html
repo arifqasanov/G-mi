@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<title>Gəmilərin tarixi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@property --s1{syntax:"<color>";inherits:true;initial-value:#4a1d96}@property --s2{syntax:"<color>";inherits:true;initial-value:#ff5e7e}@property --m1{syntax:"<color>";inherits:true;initial-value:#1b4b91}@property --m2{syntax:"<color>";inherits:true;initial-value:#0a1f4d}@property --acc{syntax:"<color>";inherits:true;initial-value:#ffd23f}
+:root{--mx:0;--my:0;--s1:#4a1d96;--s2:#ff5e7e;--m1:#1b4b91;--m2:#0a1f4d;--acc:#ffd23f;--ship:#fff7ea;--ink:#fff;--mute:rgba(255,255,255,.88);--line:rgba(255,255,255,.35);--glint:rgba(255,255,255,.4);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transition:--s1 1.2s,--s2 1.2s,--m1 1.2s,--m2 1.2s,--acc 1.2s}
+html,body{height:100%;margin:0}
+body{font-family:"Source Serif 4",Georgia,serif;color:var(--ink);overflow:hidden;background:linear-gradient(var(--s1),var(--s2) 70%,var(--m1) 70%,var(--m2))}
+.s{position:absolute;inset:0;display:flex;padding:3rem clamp(1.2rem,6vw,6rem) 6rem;visibility:hidden;overflow:hidden auto;z-index:2;pointer-events:none;transition:visibility 0s .95s}
+.s.on{visibility:visible;pointer-events:auto;transition:none}
+.tx{width:min(38rem,44vw);position:relative;z-index:3;margin:auto 0;transition:opacity .45s,translate .5s,filter .45s}.s:not(.on) .tx{opacity:0;filter:blur(8px)}.s.past .tx{translate:-50px 0}.s.next .tx{translate:50px 0}.s.on .tx{transition-delay:.4s}
+h1,h2{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:-.01em;line-height:.98;margin:0 0 1.2rem}
+h1{font-size:clamp(3.4rem,11vw,8.5rem)}
+h2{font-size:clamp(2.6rem,6.4vw,5.2rem)}
+.yr{display:block;font:500 1.3rem "Barlow Condensed","Arial Narrow",sans-serif;color:var(--acc);margin-bottom:.7rem;padding-left:3rem;position:relative}
+.yr::before{content:"";position:absolute;left:0;top:50%;width:2.2rem;border-top:2px solid var(--acc)}
+.tx>p{font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.65;color:var(--mute);margin:0 0 1.8rem}
+.f{display:grid}
+.f div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;align-items:baseline;border-top:1px solid var(--line);padding:.55rem 0}
+.f b{display:block;font:700 clamp(1.2rem,2vw,1.7rem)/1 "Barlow Condensed","Arial Narrow",sans-serif;color:var(--acc);margin-bottom:.4rem}
+.f span{font-size:.88rem;line-height:1.4;color:var(--mute);display:block}
+.cr div{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding:.8rem 0;font-size:1.05rem;max-width:26rem}
+.cr i{font-style:normal;color:var(--mute)}
+.scene{--sw:min(48vw,780px);position:absolute;right:2vw;bottom:calc(30% - var(--sw)*.163 + 8px);width:var(--sw);color:var(--ship);z-index:1;opacity:0;transform:translateX(48vw);transition:transform 1.9s cubic-bezier(.2,.7,.2,1),opacity 1.3s}
+.s.on .scene{opacity:1;transform:none}
+.s.past .scene{transform:translateX(-52vw)}
+.scene svg{overflow:visible;translate:calc(var(--mx)*14px) calc(var(--my)*8px);display:block;width:100%;animation:bob 7s ease-in-out infinite;transform-origin:50% 70%}
+@keyframes bob{50%{transform:translateY(5px) rotate(-.7deg)}}
+.cut{stroke:var(--s1);fill:none}
+.sea{position:fixed;left:0;right:0;bottom:0;height:30%;z-index:1;pointer-events:none}
+.sea svg{width:100%;height:100%}
+.sea line{stroke:var(--glint);stroke-width:1.5;vector-effect:non-scaling-stroke;animation:gl 16s linear infinite}
+.sea line:nth-child(2n){animation-duration:23s;animation-direction:reverse}
+.sea line:nth-child(3n){animation-duration:31s}
+@keyframes gl{to{stroke-dashoffset:-600}}
+.tl{position:fixed;left:0;right:0;bottom:0;display:flex;padding:0 clamp(1rem,6vw,6rem) calc(.8rem + env(safe-area-inset-bottom,0px));gap:.4rem;z-index:5}
+.tl button{flex:1;background:none;border:0;border-top:1px solid var(--line);color:var(--mute);font:500 .95rem "Barlow Condensed","Arial Narrow",sans-serif;text-align:left;padding:.8rem 0 0;cursor:pointer;white-space:nowrap}
+.tl button.on{border-top:3px solid var(--acc);margin-top:-1px;color:var(--ink)}
+.tl button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.s.on .yr,.s.on .tx>p{animation:fade .9s .6s both}
+.s.on .f div,.s.on .cr div{animation:fade .9s both;animation-delay:calc(.9s + var(--d,0)*.15s)}
+.f div:nth-child(2),.cr div:nth-child(2){--d:1}.f div:nth-child(3),.cr div:nth-child(3){--d:2}
+@keyframes up{from{clip-path:inset(0 0 100% 0);transform:translateY(28px)}to{clip-path:inset(-10% -5%);transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.f div b{margin:0}.f.d div{grid-template-columns:1fr;gap:.15rem}.f.d span{font-size:.84rem}
+.sink{animation:sink 10s ease-in-out infinite alternate;transform-origin:300px 232px}
+@keyframes sink{from{transform:rotate(2deg)}to{transform:rotate(10deg) translateY(14px)}}
+@media(max-width:800px){.s{align-items:flex-start;padding-top:2.5rem}.tx{margin:0;width:auto;background:color-mix(in srgb,var(--s1) 78%,transparent);padding:1rem;border-radius:6px}.scene{--sw:90vw;right:5vw}.f div{grid-template-columns:5.5rem 1fr}.f.d div{grid-template-columns:1fr}.tl button:not(.on){font-size:0}.tl button.on{flex:3;font-size:.95rem}}
+
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .1em}
+.w>span{display:inline-block;background:linear-gradient(100deg,var(--ink) 42%,var(--acc) 50%,var(--ink) 58%) 120% 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.s.on .w>span{animation:rise 1s calc(.5s + var(--k)*.09s) cubic-bezier(.2,.8,.2,1) both,shine 2.4s calc(1.8s + var(--k)*.09s) ease-in-out 1}
+@keyframes rise{from{transform:translateY(105%) rotate(5deg);filter:blur(6px)}}
+@keyframes shine{to{background-position:-20% 0}}
+.s::before{content:attr(data-y);position:absolute;left:-2vw;top:50%;translate:calc(var(--mx)*-30px) calc(-50% + var(--my)*-18px);font:700 clamp(8rem,24vw,22rem)/1 "Barlow Condensed","Arial Narrow",sans-serif;color:transparent;-webkit-text-stroke:1.5px var(--line);opacity:.45;white-space:nowrap;z-index:0;pointer-events:none}
+.s.on::before{animation:gh 1.6s .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes gh{from{opacity:0;scale:.9;filter:blur(14px)}}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bl{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;translate:calc(var(--mx)*40px) calc(var(--my)*30px)}
+.b1{width:40vw;height:40vw;left:-8vw;top:-12vw;background:var(--acc);animation:fl 17s ease-in-out infinite alternate}
+.b2{width:36vw;height:36vw;right:-8vw;top:6vh;background:var(--m2);animation:fl 23s -6s ease-in-out infinite alternate-reverse}
+.b3{width:26vw;height:26vw;left:35vw;top:20vh;background:var(--glint);animation:fl 29s -12s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translate(12vw,9vh) scale(1.25)}}
+.cl{position:absolute;left:-25vw;width:18vw;height:4.5vw;border-radius:50%;background:var(--glint);filter:blur(14px);animation:cd 70s linear infinite}
+.c1{top:9%}.c2{top:19%;width:12vw;animation-duration:95s;animation-delay:-40s}.c3{top:28%;animation-duration:120s;animation-delay:-80s}
+@keyframes cd{to{transform:translateX(150vw)}}
+.pt{position:absolute;bottom:-10px;width:var(--z);height:var(--z);border-radius:50%;background:var(--acc);opacity:0;animation:pf var(--t) var(--e) linear infinite}
+@keyframes pf{10%{opacity:.55}85%{opacity:.35}to{transform:translate(40px,-105vh);opacity:0}}
+.gu{position:absolute;width:26px;color:var(--ink);opacity:.5;animation:fly 30s linear infinite,flap .55s ease-in-out infinite alternate}
+@keyframes fly{from{translate:-8vw 0}to{translate:110vw -5vh}}@keyframes flap{to{transform:scaleY(.45)}}
+.sea{overflow:hidden}.sea .wv{position:absolute;left:0;bottom:0;width:200%;animation:wv linear infinite}
+@keyframes wv{to{transform:translateX(-10%)}}
+.f div{border:1px solid var(--line);border-radius:10px;padding:.65rem .9rem;margin-top:.5rem;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);transition:translate .3s,border-color .3s,box-shadow .3s}
+.f div:hover{translate:0 -4px;border-color:var(--acc);box-shadow:0 8px 22px -10px var(--acc)}
+.thx{margin-top:1.4rem;font:700 clamp(1.6rem,3vw,2.4rem)/1.1 "Barlow Condensed","Arial Narrow",sans-serif;color:var(--acc)}
+.s.on .thx{animation:fade .9s 2s both,pulse 2.4s 3s ease-in-out infinite}
+@keyframes pulse{50%{letter-spacing:.04em}}
+.rp{stroke-dasharray:46 26;opacity:.35;animation:rp 4s linear infinite}@keyframes rp{to{stroke-dashoffset:-144}}
+.sm{fill:var(--mute);opacity:0;transform-box:fill-box;transform-origin:center;animation:sm 4.4s ease-out infinite}
+@keyframes sm{15%{opacity:.45}to{opacity:0;transform:translate(-60px,-80px) scale(3.2)}}
+.bb{fill:none;stroke:currentColor;opacity:0;animation:bb 4s ease-in infinite}@keyframes bb{20%{opacity:.6}to{opacity:0;transform:translateY(-120px)}}
+.pg{position:fixed;top:0;left:0;right:0;height:3px;background:var(--acc);transform:scaleX(0);transform-origin:0 50%;transition:transform .9s cubic-bezier(.2,.8,.2,1);z-index:6}
+.wipe{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:0;background:linear-gradient(100deg,transparent 35%,color-mix(in srgb,var(--acc) 24%,transparent) 50%,transparent 65%)}
+.wipe.go{animation:wp .95s ease}@keyframes wp{from{opacity:1;transform:translateX(calc(var(--d)*100%))}to{opacity:1;transform:translateX(calc(var(--d)*-100%))}}
+.tl button{transition:color .3s,transform .3s}.tl button:hover{color:var(--ink);transform:translateY(-2px)}
+body{text-shadow:0 1px 14px rgba(0,0,0,.22)}.w>span{text-shadow:none}
+.scene svg{filter:drop-shadow(0 14px 16px rgba(0,0,0,.35))}
+.sun{position:absolute;right:16vw;top:9vh;width:15vw;height:15vw;border-radius:50%;background:radial-gradient(circle,#fff 0,var(--acc) 32%,transparent 68%);opacity:.8;animation:sun 6s ease-in-out infinite alternate;translate:calc(var(--mx)*-24px) calc(var(--my)*-14px)}
+@keyframes sun{to{scale:1.18;opacity:.55}}
+.tl button.on{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="sea" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+<line x1="0" x2="1000" y1="10" y2="10" stroke-dasharray="50 160 20 240"/><line x1="0" x2="1000" y1="26" y2="26" stroke-dasharray="90 120 40 200"/><line x1="0" x2="1000" y1="44" y2="44" stroke-dasharray="30 200 70 150"/><line x1="0" x2="1000" y1="62" y2="62" stroke-dasharray="120 150 30 180"/><line x1="0" x2="1000" y1="80" y2="80" stroke-dasharray="60 220 40 140"/></svg></div>
+
+<section class="s on" data-y="Giriş"><div class="tx">
+<h1>Gəmilərin tarixi</h1>
+<p>Sal və oyma qayıqdan nüvə buzqıranına qədər: insanın çayları, dənizləri və okeanları fəth etməsinin çoxminillik yolu.</p>
+<div class="cr"><div><i>Hazırladı</i><span>Əlizaman Məmmədov</span></div><div><i>Müəllim</i><span>Nərminə İsayeva</span></div><div><i>Qrup</i><span>6526a1</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="a" fill="currentColor" stroke="currentColor"><path d="M40 198H560Q545 232 470 232H110Q60 230 40 198Z"/><path d="M172 40v158M300 28v170M430 44v154" stroke-width="5"/><path d="M132 56h80v38h-80zM136 98h72v40h-72zM140 142h64v50h-64zM256 44h88v40h-88zM260 88h80v46h-80zM264 138h72v54h-72zM390 60h80v38h-80zM394 102h72v38h-72zM398 144h64v48h-64z"/><path d="M560 198L612 172M300 28L90 198M300 28L560 198" fill="none" stroke-width="1.5"/></g><use href="#a" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="~8000 e.ə."><div class="tx">
+<span class="yr">~8000 e.ə.</span><h2>İlk addım: oyma qayıq</h2>
+<p>İnsanlar çayları və gölləri keçmək üçün ağac gövdəsini oyaraq ilk qayıqları düzəltdilər. Ən qədim tapıntılardan biri Hollandiyada tapılan Pesse qayığıdır.</p>
+<div class="f"><div><b>~8000 il</b><span>Pesse qayığının təxmini yaşı</span></div><div><b>Ağac</b><span>Oyulmuş gövdə, qamış və heyvan dərisi</span></div><div><b>Kürək</b><span>Hərəkət qüvvəsi insan əzələsi idi</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="b" fill="currentColor" stroke="currentColor"><path d="M110 212Q300 252 500 205L490 196Q300 234 120 198Z"/><circle cx="270" cy="160" r="11"/><path d="M258 174h24l8 36h-40z"/><circle cx="392" cy="154" r="10"/><path d="M381 167h22l6 38h-36z"/><path d="M285 185L350 240" fill="none" stroke-width="5"/></g><use href="#b" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="~2500 e.ə."><div class="tx">
+<span class="yr">~2500 e.ə.</span><h2>Misir gəmiləri Nil boyunca</h2>
+<p>Qədim misirlər taxta və qamışdan gəmilər tikir, ticarət və dini mərasimlər üçün Nil çayından istifadə edirdilər. Xeops gəmisi yaxşı qorunmuş ən qədim gəmilərdəndir.</p>
+<div class="f"><div><b>43 m</b><span>Xeops gəmisinin uzunluğu</span></div><div><b>Yelkən</b><span>Külək enerjisi Misir təsvirlərində görünür</span></div><div><b>Nil</b><span>Ölkənin əsas ticarət yolu</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="c" fill="currentColor" stroke="currentColor"><path d="M50 160Q60 150 80 150L95 160Q85 175 105 212Q300 248 495 212Q515 175 505 160L520 150Q545 152 552 168Q548 222 480 234H120Q55 222 50 160Z"/><path d="M170 62H430L415 142H185Z"/><path d="M250 142L300 50L350 142M80 190L40 250M520 190L560 250" fill="none" stroke-width="5"/><path d="M240 176h120v34h-120z"/><path d="M200 102H400" class="cut" stroke-width="80" stroke-dasharray="9 9"/><path d="M62 155Q300 192 538 155" fill="none" stroke-width="2"/></g><use href="#c" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="480 e.ə."><div class="tx">
+<span class="yr">480 e.ə.</span><h2>Yunan triremləri</h2>
+<p>Yunanlar üç sıra avarlı trirem gəmiləri düzəltdilər. Bu sürətli döyüş gəmiləri ilə Salamin döyüşündə fars donanmasını məğlub etdilər.</p>
+<div class="f"><div><b>~170</b><span>Bir triremdə avarçıların sayı</span></div><div><b>3 sıra</b><span>Avarlar üç səviyyədə yerləşirdi</span></div><div><b>Taran</b><span>Burundakı sivri hissə düşmən gəmisini deşirdi</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="d" fill="currentColor" stroke="currentColor"><path d="M42 205Q22 165 52 140L60 146Q42 172 62 205Z"/><path d="M58 204H530Q552 210 566 224L612 231L560 238H110Q68 232 58 204Z"/><path d="M300 52V204M222 60H378" fill="none" stroke-width="5"/><path d="M230 64H370V138H230Z"/><path d="M232 101H368" class="cut" stroke-width="72" stroke-dasharray="10 10"/><path d="M110 232H500" stroke-width="36" stroke-dasharray="3 21" fill="none" transform="translate(123 0) skewX(-28)"/></g><use href="#d" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="VIII–XI əsr"><div class="tx">
+<span class="yr">VIII–XI əsr</span><h2>Vikinqlərin uzun gəmiləri</h2>
+<p>Vikinqlər dayaz sulara girə bilən yüngül və sürətli gəmilər tikirdilər. Bu gəmilərlə Avropa çaylarına, İslandiyaya və Şimali Amerikaya çatdılar.</p>
+<div class="f"><div><b>Yelkən + avar</b><span>Külək kəsiləndə avarla hərəkət</span></div><div><b>Dayaz su</b><span>Çaylara və sahilə rahat yanaşırdı</span></div><div><b>~1000</b><span>Təxminən Şimali Amerikaya çatma ili</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="e" fill="currentColor" stroke="currentColor"><path d="M32 136L46 134Q70 196 150 206Q300 218 450 206Q540 196 566 128L582 128Q585 205 510 232Q300 256 90 232Q20 205 32 136Z"/><path d="M566 128Q576 98 604 106Q588 112 586 128Z"/><path d="M300 62V212" fill="none" stroke-width="5"/><path d="M232 76H368V176H232Z"/><path d="M232 126H368" class="cut" stroke-width="100" stroke-dasharray="11 11"/><path d="M110 212Q300 230 490 212" class="cut" stroke-width="11" stroke-linecap="round" stroke-dasharray="0 22"/></g><use href="#e" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="1492"><div class="tx">
+<span class="yr">1492</span><h2>Böyük coğrafi kəşflər</h2>
+<p>XV əsrdə karavella kimi manevrli yelkənli gəmilər okeanı keçməyə imkan verdi. Kolumb 1492-ci ildə Amerikaya çatdı, Maqellan ekspedisiyası isə 1519–1522-ci illərdə dünyanı ilk dəfə dövrə vurdu.</p>
+<div class="f"><div><b>Karavella</b><span>Yüngül, sürətli, okean səfərləri üçün</span></div><div><b>3 gəmi</b><span>Santa María, Pinta və Niña</span></div><div><b>1519–1522</b><span>İlk dünya səyahəti</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="f" fill="currentColor" stroke="currentColor"><path d="M70 196V168H132L142 190H468Q520 192 548 170L540 214Q505 236 440 236H122Q82 230 70 196Z"/><path d="M300 44V190M436 84V190M150 100V172M540 175L602 148" fill="none" stroke-width="5"/><path d="M236 62H364Q354 112 364 162H236Q246 112 236 62ZM392 98H480Q472 134 480 170H392Q400 134 392 98ZM153 96L222 170H92Z"/><path d="M300 78V150M276 112H324" class="cut" stroke-width="8"/><path d="M300 44L548 172M300 44L70 168" fill="none" stroke-width="1.5"/></g><use href="#f" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="1807–1912"><div class="tx">
+<span class="yr">1807–1912</span><h2>Buxar və polad dövrü</h2>
+<p>1807-ci ildə Robert Fulton “Clermont” buxar gəmisini Hudson çayında işlətdi. Sonra gəmilər polad gövdəyə və vint pərvanəyə keçdi. Bu dövrün ən məşhur sərnişin gəmisi Titanik idi.</p>
+<div class="f"><div><b>1807</b><span>Clermont: ticarət buxar gəmisi</span></div><div><b>Polad</b><span>Taxta gövdənin yerini tutdu</span></div><div><b>Vint</b><span>Pərvanə yelkəni əvəz etdi</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="g" fill="currentColor" stroke="currentColor"><path d="M18 184H578L548 234H44Z"/><path d="M110 184V160H490V184zM170 160V142H430V160z"/><path d="M196 142L202 84h26l4 58zM250 142l5-58h26l4 58zM304 142l5-58h26l4 58zM358 142l5-58h26l4 58z"/><path d="M128 184V60M516 184V80M128 60L270 90M516 80L360 90" fill="none" stroke-width="3"/><path d="M203 96h24M257 96h24M311 96h24M365 96h24" class="cut" stroke-width="7"/><path d="M60 200H540" class="cut" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 14"/></g><use href="#g" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<section class="s" data-y="Qəzalar"><div class="tx">
+<span class="yr">Tarixin dərsləri</span><h2>Məşhur gəmi qəzaları</h2>
+<p>Hər böyük qəza dənizçilikdə yeni təhlükəsizlik qaydalarının yaranmasına səbəb oldu.</p>
+<div class="f d"><div><b>Titanik, 1912</b><span>“Batmaz” kimi təbliğ olunan gəmi ilk səfərində aysberqə çarpdı. Xilasedici qayıqlar hamıya çatmadı, təxminən 1500 nəfər həlak oldu.</span></div><div><b>Vasa, 1628</b><span>İsveç döyüş gəmisi ilk səfərində təxminən 1300 metr getdi və batdı. 1961-ci ildə qaldırıldı, indi muzeydədir.</span></div><div><b>Lusitania, 1915</b><span>Alman sualtı qayığı gəmini torpedoya tutdu. 1198 nəfər həlak oldu.</span></div><div><b>Costa Concordia, 2012</b><span>İtaliya sahilində qayaya çırpılıb yan yatdı. 32 nəfər həlak oldu.</span></div></div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g transform="translate(0 46) scale(.8)"><g class="sink"><use href="#g"/></g></g><path d="M440 232L470 160L492 182L520 110L548 150L570 130L596 232Z" fill="currentColor"/></svg></div></section>
+
+<section class="s" data-y="Bu gün"><div class="tx">
+<span class="yr">Bu gün</span><h2>Müasir gəmilər və Xəzər</h2>
+<p>Dünya ticarətinin böyük hissəsi dənizlə daşınır. 1878-ci ildə Nobel qardaşlarının “Zoroaster” tankeri Xəzərdə işə düşdü və dünyanın ilk neft tankeri sayılır.</p>
+<div class="f"><div><b>~400 m</b><span>Ən böyük konteyner gəmilərinin uzunluğu</span></div><div><b>Nüvə</b><span>Buzqıranlar Arktikada işləyir</span></div><div><b>1878</b><span>Zoroaster: Xəzərdə ilk tanker</span></div></div><div class="thx">Diqqətinizə görə təşəkkür edirəm!</div>
+</div><div class="scene"><svg viewBox="0 0 600 330"><g id="h" fill="currentColor" stroke="currentColor"><path d="M24 186H552Q585 192 594 232H48Z"/><path d="M44 175H340M44 161H340M44 147H340M44 133H340M420 175H560M420 161H560M420 147H560" stroke-width="12" stroke-dasharray="16 2" fill="none"/><path d="M350 186V108H392V186zM344 112H402V98H344z"/><path d="M372 98V68" fill="none" stroke-width="3"/><path d="M352 122H390" class="cut" stroke-width="4" stroke-dasharray="5 4"/></g><use href="#h" transform="translate(0 464) scale(1 -1)" opacity=".12"/></svg></div></section>
+
+<nav class="tl" id="tl" aria-label="Slaydlar"></nav>
+
+<script>
+const S=[...document.querySelectorAll('.s')],tl=document.getElementById('tl'),R=matchMedia('(prefers-reduced-motion:reduce)').matches;let i=-1,lock=0;
+document.querySelectorAll('h1,h2').forEach(e=>{e.setAttribute('aria-label',e.textContent);e.innerHTML=e.textContent.split(' ').map((w,k)=>`<span class="w" aria-hidden="true"><span style="--k:${k}">${w}</span></span>`).join(' ')});
+const B=S.map((s,k)=>{const b=document.createElement('button');b.textContent=s.dataset.y;b.onclick=()=>go(k);tl.appendChild(b);return b});
+const bg=document.createElement('div');bg.className='bg';bg.setAttribute('aria-hidden','true');
+const gull=t=>`<svg class="gu" style="top:${t}%;animation-delay:${-t}s,0s" viewBox="0 0 24 10"><path d="M0 8Q6 0 12 7Q18 0 24 8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>`;
+bg.innerHTML='<i class="sun"></i><i class="bl b1"></i><i class="bl b2"></i><i class="bl b3"></i><i class="cl c1"></i><i class="cl c2"></i><i class="cl c3"></i>'+Array.from({length:26},()=>`<i class="pt" style="left:${Math.random()*100}%;--z:${2+Math.random()*4}px;--t:${12+Math.random()*16}s;--e:-${Math.random()*20}s"></i>`).join('')+gull(12)+gull(22)+gull(8);
+document.body.prepend(bg);
+const sea=document.querySelector('.sea');
+[[.55,'--m1',14,26,.55],[.38,'--m2',10,19,.5],[.2,'--ship',8,13,.16]].forEach(([h,c,a,t,o],j)=>sea.insertAdjacentHTML('beforeend',`<svg class="wv" viewBox="0 0 2000 100" preserveAspectRatio="none" style="height:${h*100}%;fill:var(${c});opacity:${o};animation-duration:${t}s;animation-direction:${j%2?'reverse':'normal'}"><path d="M0 50q50 -${a} 100 0${' t100 0'.repeat(19)}V100H0Z"/></svg>`));
+document.body.insertAdjacentHTML('beforeend','<div class="pg" id="pg"></div><div class="wipe" id="wipe"></div>');
+const pg=document.getElementById('pg'),wipe=document.getElementById('wipe');
+const sm=(x,y,j)=>`<circle class="sm" cx="${x}" cy="${y}" r="9" style="animation-delay:${-j*1.1}s"/>`;
+S.forEach((s,k)=>{let x='<path class="rp" d="M10 238Q40 230 70 238T130 238T190 238T250 238T310 238T370 238T430 238T490 238T550 238T610 238" fill="none" stroke="currentColor" stroke-width="2"/>';
+if(k==6)x+=[215,268,322,376].map((c,j)=>sm(c,82,j)).join('');
+if(k==8)x+=sm(372,66,0)+sm(372,66,2);
+if(k==7)x+=[0,1,2,3,4,5,6,7].map(j=>`<circle class="bb" cx="${240+j*22}" cy="215" r="${2+j%3}" style="animation-delay:${-j*.7}s"/>`).join('');
+s.querySelector('.scene svg').insertAdjacentHTML('beforeend',x)});
+function cnt(s){s.querySelectorAll('.f b').forEach(b=>{b.dataset.o??=b.textContent;const o=b.dataset.o,m=o.match(/\d+/);b.textContent=o;if(!m||R||o.includes('–'))return;const v=+m[0],a=v>999?v*.8:0,t0=performance.now();(function f(t){const p=Math.max(0,Math.min(1,(t-t0-800)/1400));b.textContent=o.replace(m[0],Math.round(a+(v-a)*(1-(1-p)**3)));if(p<1&&s.classList.contains('on'))requestAnimationFrame(f);else b.textContent=o})(t0)})}
+const P=[['#4a1d96','#ff5e7e','#1b4b91','#0a1f4d','#ffd23f'],['#0b6e4f','#1fa67a','#0f8b8d','#073b4c','#ffd166'],['#e4572e','#d9822b','#1d7874','#0b3d4a','#fff3b0'],['#0077b6','#00b4d8','#023e8a','#03045e','#ffe66d'],['#240046','#7b2cbf','#3c096c','#10002b','#ff9e00'],['#c9184a','#ff8c42','#1a759f','#0a2342','#ffe66d'],['#1d3557','#457b9d','#2a9d8f','#0b2b2e','#f4a261'],['#120a1f','#8d0801','#1b0a2a','#05010a','#ff7b54'],['#3a0ca3','#4cc9f0','#4361ee','#10104a','#f72585']];
+function go(n){n=Math.max(0,Math.min(S.length-1,n));if(n===i)return;const d=n>i?1:-1;i=n;
+S.forEach((s,k)=>{s.classList.toggle('on',k===i);s.classList.toggle('past',k<i);s.classList.toggle('next',k>i)});
+B.forEach((b,k)=>b.classList.toggle('on',k===i));pg.style.transform=`scaleX(${(i+1)/S.length})`;
+if(!R){wipe.classList.remove('go');void wipe.offsetWidth;wipe.style.setProperty('--d',d);wipe.classList.add('go')}
+P[i].forEach((c,k)=>document.documentElement.style.setProperty(['--s1','--s2','--m1','--m2','--acc'][k],c));cnt(S[i]);S[i].scrollTop=0}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}if(e.key==='Home')go(0);if(e.key==='End')go(S.length-1)});
+addEventListener('wheel',e=>{const n=Date.now(),s=S[i];if(n-lock<900||Math.abs(e.deltaY)<20)return;if(s.scrollHeight>s.clientHeight+4&&((e.deltaY>0&&s.scrollTop+s.clientHeight<s.scrollHeight-4)||(e.deltaY<0&&s.scrollTop>4)))return;lock=n;go(i+(e.deltaY>0?1:-1))},{passive:true});
+let x0=null,y0=0;addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(d)>50&&Math.abs(d)>Math.abs(dy))go(i+(d<0?1:-1));x0=null});
+addEventListener('pointermove',e=>{const r=document.documentElement.style;r.setProperty('--mx',(e.clientX/innerWidth-.5).toFixed(3));r.setProperty('--my',(e.clientY/innerHeight-.5).toFixed(3))});
+go(0);
+</script>
+</body>
+</html>
